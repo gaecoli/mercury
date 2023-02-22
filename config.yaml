@@ -1,0 +1,16 @@
+app:
+  env: local
+  port: 8888
+  app_name: Mercury
+  app_url: http://localhost
+
+log:
+  level: info
+  root_dir: ./logs
+  file_name: app.log
+  format: json
+  show_line: true
+  max_backups: 10
+  max_size: 200
+  max_age: 7
+  compress: true

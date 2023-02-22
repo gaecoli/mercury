@@ -2,16 +2,19 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"mercury/mercury/bootstrap"
+	"mercury/mercury/global"
 	"net/http"
 )
 
 func main() {
+	bootstrap.InitializeConfig()
+
 	r := gin.Default()
+
 	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
+		c.String(http.StatusOK, "pong")
 	})
 
-	r.Run()
+	r.Run(":" + global.App.Config.App.Port)
 }
