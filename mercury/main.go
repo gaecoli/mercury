@@ -10,6 +10,9 @@ import (
 func main() {
 	bootstrap.InitializeConfig()
 
+	global.App.Log = bootstrap.InitializeLog()
+	global.App.Log.Info("logger init success!")
+
 	r := gin.Default()
 
 	r.GET("/ping", func(c *gin.Context) {

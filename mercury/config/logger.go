@@ -1,7 +1,7 @@
 package config
 
 type Log struct {
-	Leven      string `mapstructure:"level" json:"level" yaml:"leven"`
+	Level      string `mapstructure:"level" json:"level" yaml:"level"`
 	RootDir    string `mapstructure:"root_dir" json:"root_dir" yaml:"root_dir"`
 	FileName   string `mapstructure:"file_name" json:"file_name" yaml:"file_name"`
 	Format     string `mapstructure:"format" json:"format" yaml:"format"`
