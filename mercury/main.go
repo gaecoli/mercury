@@ -11,7 +11,9 @@ func main() {
 	bootstrap.InitializeConfig()
 
 	global.App.Log = bootstrap.InitializeLog()
-	global.App.Log.Info("logger init success!")
+	var logger = global.App.Log
+
+	logger.Info("logger init success!")
 
 	r := gin.Default()
 
