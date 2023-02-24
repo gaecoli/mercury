@@ -61,7 +61,9 @@ func getZapCore() zapcore.Core {
 
 	encoderConfig := zap.NewProductionEncoderConfig()
 	encoderConfig.EncodeTime = func(time time.Time, encoder zapcore.PrimitiveArrayEncoder) {
-		encoder.AppendString(time.Format("[" + "2006-01-01 00:00:00.000" + "]"))
+		// why set date format is 2006-01-02 15:04:05.000?
+		// https://stackoverflow.com/questions/42217308/go-time-format-how-to-understand-meaning-of-2006-01-02-layout
+		encoder.AppendString(time.Format("[" + "2006-01-02 15:04:05.000" + "]"))
 	}
 	encoderConfig.EncodeLevel = func(l zapcore.Level, encoder zapcore.PrimitiveArrayEncoder) {
 		encoder.AppendString(global.App.Config.App.Env + "." + l.String())
