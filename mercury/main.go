@@ -1,25 +1,27 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"mercury/mercury/bootstrap"
 	"mercury/mercury/global"
-	"net/http"
 )
 
 func main() {
 	bootstrap.InitializeConfig()
 
 	global.App.Log = bootstrap.InitializeLog()
-	var logger = global.App.Log
+	global.App.Log.Info("logger init success!")
 
-	logger.Info("logger init success!")
+	global.App.DB = bootstrap.InitializeDB()
 
-	r := gin.Default()
+	defer func() {
+		if global.App.DB != nil {
+			db, _ := global.App.DB.DB()
+			err := db.Close()
+			if err != nil {
+				return
+			}
+		}
+	}()
 
-	r.GET("/ping", func(c *gin.Context) {
-		c.String(http.StatusOK, "pong")
-	})
-
-	r.Run(":" + global.App.Config.App.Port)
+	bootstrap.RunServer()
 }
