@@ -40,3 +40,8 @@
    - 错误页面
    - 国际化
 
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/gaecoli/mercury.svg)](https://starchart.cc/gaecoli/mercury)
+
