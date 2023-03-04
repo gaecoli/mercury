@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/gin-gonic/gin"
 	"mercury/mercury/app/common/request"
+	"mercury/mercury/app/controllers/app"
 	"net/http"
 	"time"
 )
@@ -29,4 +30,6 @@ func SetApiGroupRoutes(router *gin.RouterGroup) {
 			"message": "success",
 		})
 	})
+
+	router.POST("/auth/register", app.Register)
 }
