@@ -23,5 +23,7 @@ func main() {
 		}
 	}()
 
+	bootstrap.InitializeValidator()
+
 	bootstrap.RunServer()
 }
