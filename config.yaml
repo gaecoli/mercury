@@ -1,5 +1,5 @@
 app:
-  env: local
+  env: pro
   port: 8888
   app_name: Mercury
   app_url: http://localhost
